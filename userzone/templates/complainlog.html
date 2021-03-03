@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bootstrap 4 Sticky Top Navbar</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style >
+    .bs-example{
+       // margin-top: 20px;
+    }
+#main
+        {
+        width:800px;
+        min-height:800px;
+        background-color:#90caf9;
+        float:right;
+        }
+
+
+
+
+
+        #slider
+        {
+
+
+        background-color:;
+        }
+        #parent
+        {
+
+        min-height:800px;
+        margin-top:5px;
+        background-color:;
+
+
+        }
+        #left
+        {
+
+        min-height:800px;
+        background-color:#33b5e5;
+
+       // border:1px solid black;
+        }
+        #main
+        {
+
+        min-height:800px;
+        background-color:;
+        float:right;
+        }
+        #footer
+         {
+
+        min-height:130px;
+        margin-top:5px;
+
+                }
+         #lfooter
+         {
+
+         min-height:130px;
+         background-color:black;
+         color:white;
+         text-align:center;
+         float:left;
+         font-size:30px;
+         line-height:130px;
+         }
+         #rfooter
+         {
+
+         min-height:130px;
+         background-color:navy;
+         float:right;
+         font-size:30px;
+
+         color:white;
+         text-align:center;
+         line-height:130px;
+
+         }
+
+nav a:hover
+{
+background-color:#76ff03;
+}
+a
+{
+color:white;
+
+}
+
+ a:hover{ -webkit-transform: scale(1.2); }
+
+</style>
+</head>
+<body>
+<div class="bs-example">
+
+<div class="container-fluid">
+  <div class="container-fluid" style="background-color:#1976d2">&nbsp;</div>
+    <div class="row" style="height:160px; width:101.1%;   border-radius:10px;margin-top:5px;"><img src="{%static 'images/cpos.png'%}"/><div style="margin-left:20px; font-size:4vw;line-height:150px;color:white;"><b><i><mark style="font-family:cursive;color:#1976d2;border-radius:10px;">CALL PROCESSING OPTIMISATION</mark></i></b></div></div>
+
+
+    <nav id="nav-tab" class="navbar navbar-expand-md   sticky-top " style="background-color:#1976d2;margin-top:2px; ">
+        <a href="#" class="navbar-brand">Call Processing Optimisation </a>|
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+
+
+                 <a href="{%url 'userzone:userhome'%}"class="nav-item nav-link active">User Home</a>
+            <a href="{%url 'userzone:discussion'%}" class="nav-item nav-link ">Discussion</a>
+            <a href="{%url 'userzone:searchsolution'%}" class="nav-item nav-link ">Search Solutions</a>
+           <a href="{%url 'userzone:complainlog'%}" class="nav-item nav-link">Complain Log</a>
+           <a href="{%url 'userzone:changepassword'%}"class="nav-item nav-link ">Change Password</a>
+           <a href="{%url 'login'%}" class="nav-item nav-link ">Log Out</a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                   <form class="navbar-form navbar-left" role="search">
+        <div class="form-group navbar-nav ml auto">
+          <input type="text" class="form-control" placeholder="Search">
+
+        <button type="submit" class="btn btn-default" style="background-color:aqua;">Search</button></div>
+                   </form></div>
+        </div>
+
+    </nav>
+
+    <div id="parent" class="container-fluid">
+
+        <div class="row"> <div class="col-sm-4"></div><h2 style="color:blue;text-align:center;">
+                Complain Logging System
+            </h2>
+        <div class="col-sm-4"></div>
+        </div>
+        <form action="{%url 'userzone:savecomplain'%}" method="post">
+            {%csrf_token%}
+
+
+             <div class="form-group">
+                    <div class="row">
+                    <label class="control-label col-sm-3" for="subject"><b>Subject:</b></label>
+
+    <input type="text"  class="form-control col-sm-5" name="subject" id="subject" placeholder="Enter Subject" required>
+
+</div>
+                </div>
+
+                 <div class="form-group">
+                    <div class="row">
+                        <label class="col-sm-3"for="complaintext"><b>Enter Complain Text</b></label>
+  <textarea class="form-control col-sm-5" rows="5" id="complaintext"  name="complaintext" required placeholder="Complain Text" style="resize:none;"></textarea>
+</div>
+                </div>
+
+             <div class="form-group">
+                    <div class="row">
+
+
+                        <div class="checkbox col-sm-3">
+
+
+</div>
+
+                    <div class="col-sm-5">
+                        <button type="submit" class="btn btn-success" value="POST">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+                </div>
+
+        </form>
+    </div>
+    <div id="footer">
+        <div id="lfooter">
+            Copyright &copy; to CPO
+        </div>
+        <div id="rfooter">
+            Developed By:Piyush Dayani
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

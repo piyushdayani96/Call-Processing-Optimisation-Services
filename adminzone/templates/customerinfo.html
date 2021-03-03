@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bootstrap 4 Sticky Top Navbar</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style >
+    .bs-example{
+       // margin-top: 20px;
+    }
+#main
+        {
+        width:800px;
+        min-height:800px;
+        background-color:#90caf9;
+        float:right;
+        }
+
+
+
+
+
+        #slider
+        {
+
+
+        background-color:;
+        }
+        #parent
+        {
+
+        min-height:800px;
+        margin-top:5px;
+        background-color:#90caf9;
+
+
+        }
+        #left
+        {
+
+        min-height:800px;
+        background-color:#33b5e5;
+
+       // border:1px solid black;
+        }
+        #main
+        {
+
+        min-height:800px;
+        background-color:#90caf9;
+        float:right;
+        }
+        #footer
+         {
+
+        min-height:130px;
+        margin-top:5px;
+
+                }
+         #lfooter
+         {
+
+         min-height:130px;
+         background-color:black;
+         color:white;
+         text-align:center;
+         float:left;
+         font-size:30px;
+         line-height:130px;
+         }
+         #rfooter
+         {
+
+         min-height:130px;
+         background-color:navy;
+         float:right;
+         font-size:30px;
+
+         color:white;
+         text-align:center;
+         line-height:130px;
+
+         }
+
+nav a:hover
+{
+background-color:#76ff03;
+}
+a
+{
+color:white;
+
+}
+
+ a:hover{ -webkit-transform: scale(1.2); }
+
+</style>
+</head>
+<body>
+<div class="bs-example">
+
+<div class="container-fluid">
+  <div class="container-fluid" style="background-color:#1976d2">&nbsp;</div>
+    <div class="row" style="height:160px; width:101.1%;   border-radius:10px;margin-top:5px;"><img src="{%static 'images/cpos.png'%}"/><div style="margin-left:20px; font-size:4vw;line-height:150px;color:white;"><b><i><mark style="font-family:cursive;color:#1976d2;border-radius:10px;">CALL PROCESSING OPTIMISATION</mark></i></b></div></div>
+
+
+    <nav id="nav-tab" class="navbar navbar-expand-md   sticky-top " style="background-color:#1976d2;margin-top:2px; ">
+        <a href="#" class="navbar-brand">Call Processing Optimisation </a>|
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+
+
+                       <a href="{% url 'adminzone:adminhome'%}" class="nav-item nav-link ">Admin Home</a>
+            <a href="{% url 'adminzone:enquiries'%}" class="nav-item nav-link ">Enquiries</a>
+            <a href="{% url 'adminzone:complains'%}" class="nav-item nav-link ">Complains</a>
+            <a href="{% url 'adminzone:customerinfo'%}" class="nav-item nav-link ">Customer Info</a>
+            <a href="{%url 'adminzone:knowledgebase'%}" class="nav-item nav-link ">Knowledgebase</a>
+            <a href="{%url 'adminzone:logout'%}" class="nav-item nav-link ">Log Out</a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                   <form class="navbar-form navbar-left" role="search">
+        <div class="form-group navbar-nav ml auto">
+          <input type="text" class="form-control" placeholder="Search">
+
+        <button type="submit" class="btn btn-default" style="background-color:aqua;">Search</button></div>
+                   </form></div>
+        </div>
+
+    </nav>
+
+
+
+
+    <div id="parent" class="container-fluid">
+        <h2 style="color:blue;text-align:center;">
+            View All Customer
+        </h2>
+        <div class="table-responsive">
+        <table border="1" class="table">
+           <thead class="table-dark">
+            <tr>
+            <td>Name</td>
+            <td>Gender</td>
+            <td>Address</td>
+            <td>Nationality</td>
+            <td>Contact No</td>
+            <td>Email Address</td>
+            <td>Connect Date</td>
+                <td>Delete</td>
+            </tr>
+            </thead>
+            {%for c in cust %}
+          <tbody class="table-hover">
+            <tr class="table-primary">
+                <td>{{c.name}}</td>
+                <td>{{c.gender}}</td>
+                <td>{{c.address}}</td>
+                <td>{{c.nationality}}</td>
+                <td>{{c.contactno}}</td>
+                <td>{{c.emailaddress}}</td>
+                <td>{{c.connectdate}}</td>
+                <td><a style="font-weight:bold;" href="{% url 'adminzone:deletecustomerinfo' emailaddress=c.emailaddress %}">Delete</a></td>
+            </tr>
+            </tbody>
+            {%endfor%}
+        </table>
+            </div>
+    </div>
+ <div id="footer" class="row">
+        <div id="lfooter" class="col-sm-6">
+            Copyright &copy; to CPO
+        </div>
+        <div id="rfooter" class="col-sm-6">
+            Developed By:Piyush Dayani
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
